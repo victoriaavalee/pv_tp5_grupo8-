@@ -1,11 +1,12 @@
-import { useState } from 'react'
-
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Views/home.jsx'; // Asegurate de crear esta carpeta y archivo
 
 let nextId = 0;
 
 function App() {
-  const [alumnos, setAlumnos] = useState ([
-    { id: 100 ,lu: "APU00999", nombre: "Marta Eugenia", apellido: "Diaz", curso: "Tercero" ,email: "marianadiaz@mail.com", domicilio: "Av. Congreso 125", telefono: "3884895999"},
+  const [alumnos, setAlumnos] = useState([
+    { id: 100 ,lu: "APU00999", nombre: "Marta Eugenia", apellido: "Diaz", curso: "Tercero", email: "marianadiaz@mail.com", domicilio: "Av. Congreso 125", telefono: "3884895999"},
     { id: 101, lu: "APU01005", nombre: "Luciano Valentín", apellido: "Ramirez", curso: "Segundo", email: "lucianovramirez@mail.com", domicilio: "Calle Lavalle 145", telefono: "3885111222"},
     { id: 102, lu: "APU01006", nombre: "Camila Soledad", apellido: "Torres", curso: "Primero", email: "camilastorres@mail.com", domicilio: "Av. El Éxodo 201", telefono: "3884777888"},
     { id: 103, lu: "APU01007", nombre: "Joaquín Andrés", apellido: "López", curso: "Tercero", email: "joaquinandreslopez@mail.com", domicilio: "Alvear 300", telefono: "3884000222"},
@@ -14,25 +15,24 @@ function App() {
   ]);
   const [alumno, setAlumno] = useState({});
 
-
-  //Guardar y editar alumnos
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     if (typeof alumno.id === "undefined"){
       alumno.id = nextId++;
-      setAlumnos([...alumnos,alumno]);
-    }else{
-      setAlumnos(alumnos => [...alumnos.filter(u =>u.id !== alumno.id), alumno]);
+      setAlumnos([...alumnos, alumno]);
+    } else {
+      setAlumnos(alumnos => [...alumnos.filter(u => u.id !== alumno.id), alumno]);
     }
     setAlumno({});
-  }
+  };
 
   return (
-    <>
-      <div>
-    
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Aquí irán más rutas como /alumnos, /alumnos/:id, etc. */}
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
