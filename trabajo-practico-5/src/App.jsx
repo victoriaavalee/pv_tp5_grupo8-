@@ -28,9 +28,18 @@ function App() {
 
   return (
     <>
-      <div>
+        <div>
+       <Router>
+         <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="alumnos/:id/editar" element={<Editar/>} 
+        <Route path="alumnos/:id"  element={<Detalles/>}
+      </Routes>
+
+       </Router>
     
-      </div>
+    </div>
     </>
   )
 }
