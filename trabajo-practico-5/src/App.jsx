@@ -1,6 +1,10 @@
 import { useState } from 'react'
-import { Home } from '../views/Home'
-import { listadoAlumnos} from '../views/listadoAlumnos'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Views/home';
+import Navbar from './Views/NavBar';
+import ListadoAlumnos from './Views/listadoAlumnos';
+//import Editar from './Views/Editar';
+//import Detalles from './Views/Detalles';
 
 let nextId = 0;
 
@@ -30,16 +34,15 @@ function App() {
   return (
     <>
         <div>
-       <Router>
-         <Navbar/>
+      <Router>
+        <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/listadoAlumnos" element={<Listado />} />
-        <Route path="alumnos/:id/Edit" element={<Editar/>} />
-        <Route path="alumnos/:id"  element={<Detalles/>} />
+        <Route path="/listadoAlumnos" element={<ListadoAlumnos />} />
+        {/*<Route path="alumnos/:id/Edit" element={<Editar/>} />
+        <Route path="alumnos/:id"  element={<Detalles/>} />*/}
       </Routes>
-
-       </Router>
+      </Router>
     
     </div>
     </>
