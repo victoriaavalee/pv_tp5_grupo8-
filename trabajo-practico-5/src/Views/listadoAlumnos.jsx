@@ -3,6 +3,7 @@ import Titulo from "./Titulo";
 
 
 const ListaAlumnos = ({ alumnos }) => {
+    const navigate = useNavigate();
     <Titulo texto={"Listado de Alumnos"}></Titulo>
     return(
         <table className="w-full border">
