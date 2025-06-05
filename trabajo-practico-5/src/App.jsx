@@ -1,5 +1,6 @@
 import { useState } from 'react'
-
+import { Home } from '../views/Home'
+import { listadoAlumnos} from '../views/listadoAlumnos'
 
 let nextId = 0;
 
